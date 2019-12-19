@@ -1,0 +1,107 @@
+﻿<Window x:Class="TaskTimer.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskTimer"
+        mc:Ignorable="d"
+        Title="Settings" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Height="450" Width="300" d:DataContext="{d:DesignInstance {x:Type local:MainVM}, IsDesignTimeCreatable=True}" >
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+        <Style TargetType="Button" x:Key="WinButton">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Width" Value="72"/>
+        </Style>
+        <Style TargetType="Button" x:Key="squarebtn">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="24" Text="Settigs" FontWeight="Light" FontFamily="Square721 BT"/>
+        <Button Grid.Column="1" Style="{StaticResource squarebtn}">+</Button>
+        <Button Grid.Column="2" Style="{StaticResource squarebtn}">-</Button>
+        <ListBox BorderBrush="Gray" BorderThickness="2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding ChronoList}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="1,0.5,-1,29.5" Grid.RowSpan="2">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE6FFFF" Offset="0"/>
+                    <GradientStop Color="#FCE6E6E6" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="Model:Chrono">
+
+                    <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="3" Margin="3" Padding="3">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.55,1" StartPoint="0.45,0">
+                                <GradientStop Color="#FFC8C8C8" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="3"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                </Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Margin" Value="3"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Chronomiter" FontSize="18" FontWeight="Black"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Label}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Red Alert"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Yellow Alert"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding RedAlert}"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding YellowAlert}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding redTs}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding yrllowTs}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="3">
+            <Button Style="{StaticResource WinButton}">Save</Button>
+            <Button Style="{StaticResource WinButton}">OK</Button>
+        </StackPanel>
+    </Grid>
+</Window>
