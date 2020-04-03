@@ -7,8 +7,5 @@
         mc:Ignorable="d"
         Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" Opacity="0.5">
     <Grid>
-        <ItemsControl>
-            <ItemsControl.ItemTemplate
-        </ItemsControl>
     </Grid>
 </Window>

@@ -12,7 +12,7 @@ namespace TaskTimer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -23,39 +23,81 @@ namespace TaskTimer.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/Chronometer")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Chronometer")]
         public string Datapath {
             get {
                 return ((string)(this["Datapath"]));
             }
-            set {
-                this["Datapath"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/ChronoData.bin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\ChronoData.bin")]
         public string DataFile {
             get {
                 return ((string)(this["DataFile"]));
-            }
-            set {
-                this["DataFile"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseKeySequence {
+        public bool StartDocked {
             get {
-                return ((bool)(this["UseKeySequence"]));
+                return ((bool)(this["StartDocked"]));
             }
             set {
-                this["UseKeySequence"] = value;
+                this["StartDocked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoHide {
+            get {
+                return ((bool)(this["AutoHide"]));
+            }
+            set {
+                this["AutoHide"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int KeySeqTimeout {
+            get {
+                return ((int)(this["KeySeqTimeout"]));
+            }
+            set {
+                this["KeySeqTimeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int MaxCountdown {
+            get {
+                return ((int)(this["MaxCountdown"]));
+            }
+            set {
+                this["MaxCountdown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoadCrono {
+            get {
+                return ((bool)(this["LoadCrono"]));
+            }
+            set {
+                this["LoadCrono"] = value;
             }
         }
     }

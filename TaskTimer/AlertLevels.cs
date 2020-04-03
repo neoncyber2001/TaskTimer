@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TaskTimer
 {
     
-    enum AlertLevels:int
+    public enum AlertLevels:int
     {
         NoAlarm,
         YellowAlret,

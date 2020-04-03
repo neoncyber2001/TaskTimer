@@ -1,0 +1,89 @@
+﻿<Window x:Class="TaskTimer.ConfigView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskTimer"
+        xmlns:mdl="clr-namespace:TaskTimer.Model"
+        mc:Ignorable="d"
+        Title="Configure" Height="600" Width="450" d:DataContext="{d:DesignInstance {x:Type local:MainVM}, IsDesignTimeCreatable=True}">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="18" FontWeight="Bold" Text="Chronometers" ToolTip="Like a stop watch."/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button>Add</Button>
+            <Button>Remove</Button>
+        </StackPanel>
+        <ListView Grid.Row="2" ItemsSource="{Binding ChronoList}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="mdl:Chrono">
+                    <Grid HorizontalAlignment="Stretch" Margin="3">
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="3"/>
+                                <Setter Property="Padding" Value="3"/>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin" Value="3"/>
+                                <Setter Property="Padding" Value="3"/>
+                            </Style>
+
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.RowSpan="4" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"/>
+                        <TextBlock Grid.ColumnSpan="2" FontSize="16" FontWeight="Bold" Text="Chronometer"/>
+                        <TextBlock Grid.Row="1" Text="Yellow Alert:"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding YellowAlert}"/>
+
+                        <TextBlock Grid.Row="2" Text="Red Alert:"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding RedAlert}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Grid.Row="3"  Text="Count Down Timers" FontSize="18"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button>Add</Button>
+            <Button>Remove</Button>
+        </StackPanel>
+        <ListView Grid.Row="5"/>
+        
+    </Grid>
+</Window>

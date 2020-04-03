@@ -2,13 +2,25 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TaskTimer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Datapath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/Chronometer</Value>
+    <Setting Name="Datapath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\Chronometer</Value>
     </Setting>
-    <Setting Name="DataFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/ChronoData.bin</Value>
+    <Setting Name="DataFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\ChronoData.bin</Value>
     </Setting>
-    <Setting Name="UseKeySequence" Type="System.Boolean" Scope="User">
+    <Setting Name="StartDocked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AutoHide" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KeySeqTimeout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="MaxCountdown" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="LoadCrono" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

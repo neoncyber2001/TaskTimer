@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections;
+
+using System.Collections.ObjectModel;
+using TaskTimer.Model;
 
 namespace TaskTimer
 {
@@ -19,9 +23,26 @@ namespace TaskTimer
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings()
+        private SettingsVM vm;
+        public Settings(ObservableCollection<Chrono> lst)
         {
             InitializeComponent();
+            vm = new SettingsVM(lst);
+            DataContext = vm;
+            vm.CronosSaved += OnSaved;
+        }
+        public EventHandler<Boolean> savecomplete { get; set; }
+                
+        private void OnSaved(object sender, bool e)
+        {
+            savecomplete?.Invoke(this, e);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SaveCronos();
+            this.Hide();
+
         }
     }
 }
